@@ -1,7 +1,7 @@
 console.log('Tuto javascript');
 
                                                                                 /* PARTIE 1 : LES TYPES */
-console.log('partie 1 : les types');
+console.log('\t\t\tpartie 1 : les types'); // \t imprime une tabulation
 
 /*
  - il y a plusieurs types de valeurs possibles :
@@ -52,7 +52,7 @@ console.log(typeof personnage1_armes[2]); // "string"
 
                                                                                 /* PARTIE 2 : LES COMMENTAIRES */
 var numéroPartie = 2;
-console.log('fin de la partie 1\n\n\nPartie', numéroPartie, ": les commentaires"); // \n dans un string signifie "retour à la ligne"
+console.log('fin de la partie 1\n\n\n\t\t\tPartie', numéroPartie, ": les commentaires"); // \n dans un string signifie "retour à la ligne"
 
 
 // console.log('coucou');
@@ -76,15 +76,16 @@ console.log('Patrick a une énorme'/*, 'trique'*/, 'tête');
 
 
 
-                                                                                /* PARTIE 3 : LES OPERATEURS */
+                                                                                /* PARTIE 3 : LES OPÉRATEURS */
 numéroPartie = numéroPartie + 1 // numéroPartie = 3, maintenant.
-console.log('fin de la partie 2\n\n\nPartie ' + numéroPartie + ' : les opérateurs');
+console.log('fin de la partie 2\n\n\n\t\t\tPartie ' + numéroPartie + ' : les opérateurs');
 // remarquez l'espace que j'ai insérée après Partie... parce que sinon,
 // ça aurait écrit : 'Partie3'. Pensez à insérer des espaces quand on colle
 // des strings les uns aux autres, c'est une erreur classique de débutant/d'étourderie
 
+// LES ADDITIONS
 console.log(personnage1_age); // 85
-// ici, on veut imprimer 'combien vaut l'age d'Aragorn plus un
+// ici, on veut imprimer 'combien vaut l'age d'Aragorn plus un ?'
 console.log(personnage1_age + 1); // 86
 // ...mais ça ne change pas l'age de ce dernier :
 console.log(personnage1_age); // 85
@@ -112,7 +113,59 @@ console.log(personnage1_age); // 109
 console.log(personnage1_age); // 109
 console.log(++personnage1_age); // 110
 console.log(personnage1_age); // 110
-// Si vous ne pigez pas la différence, ce n'est pas non plus très grave, cette distinction n'est que rarement importante.
+// Si vous ne pigez pas la différence, ce n'est pas non plus très grave, cette distinction n'est que rarement décisive.
+
+//      Les autres opérateurs arithmétiques
+console.log(3 - 4); // -1
+console.log(3 + -4); // -1
+console.log(3 * 4); // 12
+console.log(1 / 2); // 0.5
+console.log(4 ** 2); // 16 (4 puissance 2), ne fonctionne que sur les navigateurs qui implémente cette nouvelle opération
+console.log(4 ** 3); // 64 (4 puissance 3), idem
+console.log(12 % 4); // 0 (reste de la division entière de 12 par 4)
+console.log(13 % 4); // 1
+
+//      Les opérateurs logiques OU (||), ET (&&), et NON (!)
+/*
+&& (ET) rend vrai si et seulement si les expressions de droite et de gauche sont vraies.
+|| (OU) rend vrai si au moins une des expressions de droite et de gauche est vraie.
+*/
+console.log(true && true); // true
+console.log(true && false); // false
+console.log(true || true); // true
+console.log(true || false); // true
+console.log(!true); // false
+console.log(!false); // true
+
+//      Les assignations
+/*
+ L'opérateur de base de l'assignation est le signe =
+ On assigne à ce qui se trouve à gauche du = le résultat de l'expression située à sa droite :
+*/
+var a = 2;
+console.log(a); // 2
+a *= 10; // 20 cela est équivalent à : a = a * 10
+console.log(a); // 20
+a /= 4; // 5 équivaut à a = a * 4
+console.log(a); // 5
+a **= 3; // 125 <=> a = a ** 3
+a %= 50; // 25 <=> a = a % 100 (reste de la division entière par 50)
+
+//      Priorité des opérateurs
+console.log(3 + 25 * 2); // 53, car la multiplication a priorité sur l'addition : 3 + (2 * 25)
+// le ET (&&) prime sur le OU (||)
+// le = a une très faible priorité.
+// plus d'infos à la page suivante : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+//      Quelques fonctions mathématiques
+console.log(Math.floor(10.7)); // 10 // arrondit à l'entier inférieur
+console.log(Math.ceil(10.7)); // 11 // arrondit à l'entier supérieur
+console.log(Math.round(10.7)); // 11 // arrondit à l'entier le plus proche
+console.log(Math.round(10.5)); // 11 // arrondit à l'entier supérieur si on est à mi-chemin
+console.log(Math.round(10.1)); // 10
+console.log(Math.sqrt(16)); // 4 (racine carrée)
+console.log(16 ** .5); // 4 (racine carrée)
+console.log(Math.random()); // rend un nombre au hasard situé entre 0 et 1
 
 
 
