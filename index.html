@@ -1,34 +1,55 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- la balise HEAD contient des métadonnées, c'est à dire des informations contextuelles sur la page -->
+
+		<!-- Cette balise définit le jeu de charactères de la page -->
 		<meta charset="utf-8">
+
+		<!-- Cette balise définit le titre de la page tel qu'il s'affichera dans l'onglet du navigateur -->
 		<title>qui permet de changer le titre de la page</title>
+
+		<!-- dit au navigateur d'associer le fichier de styles styles.css à la page et de l'interpréter -->
 		<link rel="stylesheet" href="./styles.css">
+
+		<!-- dit au navigateur d'associer le fichier javascript monscript.js à la page et de l'exécuter' -->
 		<script src="./monscript.js"></script>
 	</head>
 	<body>
+		<!-- les commentaires s'écrivent de cette façon, en HTML -->
 		<div class="site-container">
+			<!-- header : (en-tête) le header de la page regroupe les liens principaux de navigation du site -->
 			<header>
 				<div class="banniere">Bannière</div>
+				<!-- ul : Unordered List : liste non-ordonnée d'éléments (liste à puces) -->
 				<ul class="navigation">
-					<li><a href="http://www.google.fr">accueil</a></li>
+					<!-- li : List Item : un élément de la liste (qu'elle soit ordonnée ou non) -->
+					<li>
+						<!-- A : anchor : lien vers une autre partie du site, voire un autre site -->
+						<a href="http://www.google.fr">accueil</a>
+					</li>
 					<li><a href="http://www.google.fr">saison</a></li>
 					<li><a href="http://www.google.fr">personnages</a></li>
 					<li><a href="http://www.google.fr">bande-annonce</a></li>
 					<li><a href="http://www.google.fr">boutique</a></li>
 				</ul>
 			</header>
+			<!-- main : section principale du contenu de la page -->
 			<main>
+				<!-- article : article -->
 				<article>
-					<h1 class="article-titre" ng-click="direCoucou()">le titre de mon article</h1>
+					<!-- h1 : Header : titre du plus haut niveau d'importance -->
+					<!-- h2 : Header : titre juste un peu moins important -->
+					<!-- h6 : Header : titre le moins important -->
+					<h2 class="article-titre" ng-click="direCoucou()">le titre de mon article</h2>
+
 					<ul class="encart">
-						<!-- <li>section 1</li>
-						<li>section 2</li>
-						<li>section 3</li>
-						<li>section 4</li> -->
 						<img class="vignette" src="img/toto.jpg">
 					</ul>
+
+					<!-- div : Division : un bloc de contenu, sans plus de précision sémantique -->
 					<div class="article-content">
+						<!-- p : Paragraph : un paragraphe -->
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing
 							elit. Inventore fugit qui nulla laboriosam non, optio
 							itaque. Unde velit porro aperiam dolorum perferendis
@@ -37,10 +58,128 @@
 							vitae consectetur eveniet ut molestias. Quod eligendi
 							cum, nesciunt quam ex.
 						</p>
-
 					</div>
 				</article>
+				<!-- place un marqueur horizontal -->
+				<hr>
+				<article>
+					<h2>Le formatage de texte</h2>
+					<ul style="list-style-type: none;">
+						<li>
+							<h3>Les balises de formatage non-sémantiques</h3>
+
+							<!-- dl : Description List : liste de descriptions / définitions -->
+							<dl>
+								<!-- dt : Definition Term : le terme que l'on souhaite définir -->
+								<dt>&lt;b&gt;</dt>
+								<!-- dd : Definition Description : la description / définition en soi -->
+								<dd>&lt;b&gt; met le contenu en <b>gras</b>.</dd>
+
+								<dt>&lt;i&gt;</dt>
+								<dd>&lt;i&gt; met le contenu en <i>italique</i>.</dd>
+
+								<dt>&lt;u&gt;</dt>
+								<dd>&lt;u&gt; souligne le <u>contenu</u>.</dd>
+
+								<dt>&lt;sup&gt;</dt>
+								<dd>&lt;sup&gt; met le contenu en <sup>exposant</sup>.</dd>
+
+								<dt>&lt;sub&gt;</dt>
+								<dd>&lt;sub&gt; met le contenu en <sub>indice</sub>.</dd>
+							</dl>
+						</li>
+
+						<li>
+							<h3>Les balises de formatage sémantiques</h3>
+
+							<dl>
+								<dt>&lt;strong&gt;</dt>
+								<dd>&lt;strong&gt; met un élément en <strong>gras</strong>.</dd>
+
+								<dt>&lt;em&gt;</dt>
+								<dd>&lt;em&gt; met une <em>emphase</em> sur le texte qu'elle contient.</dd>
+
+								<dt>&lt;mark&gt;</dt>
+								<dd>&lt;mark&gt; <mark>surligne</mark> le texte d'un élément.</dd>
+
+								<dt>&lt;s&gt; (strikethrough)</dt>
+								<dd>&lt;s&gt; <s>barre</s> un élément.</dd>
+
+								<dt>&lt;strong&gt;</dt>
+								<dd>&lt;strong&gt; met un élément en gras.</dd>
+							</dl>
+						</li>
+					</ul>
+				</article>
+				<article>
+					<h2>Les tableaux</h2>
+
+					<!-- table : tableau : bah... plutôt évident, non ? -->
+					<table>
+						<!-- caption : le titre du tableau. Balise optionnelle -->
+						<caption>La Communauté de l'Anneau</caption>
+						<!-- thead : Tables HEAD : en-tête du tableau -->
+						<!-- il est illégal que les descendants DIRECTS d'un thead soient autre chose que des tr -->
+						<!-- le thead est censé être obligatoire, mais s'il est omis, le navigateur en créera un, vide, avant le tbody -->
+						<thead>
+							<!-- tr : Table Row : déclare une ligne dans un tableau -->
+							<tr>
+								<!-- th : Table Header : cellule d'en-tête du tableau -->
+								<th>Nom</th>
+								<th>Spécialité</th>
+								<th>Race</th>
+								<th>arme favorite</th>
+							</tr>
+						</thead>
+						<!-- tbody : Table Body : contenu principal du tableau -->
+						<!-- il est illégal que les descendants DIRECTS d'un thead soient autre chose que des tr -->
+						<!-- le thead est censé être obligatoire, mais s'il est omis, le navigateur en créera un, vide, avant le tbody -->
+						<tbody>
+							<tr>
+								<!-- on peut aussi mettre des th dans le corps du tableau -->
+								<th>Aragorn</th>
+								<td>Corps-à-corps</td>
+								<td>numénorien</td>
+								<td>Épée</td>
+							</tr>
+							<tr>
+								<th>Legolas</th>
+								<td>Tir à l'arc</td>
+								<td>elfe</td>
+								<td>Arc</td>
+							</tr>
+							<tr>
+								<th>Gimli</th>
+								<td>Corps-à-corps</td>
+								<td>nain</td>
+								<td>Hache</td>
+							</tr>
+						</tbody>
+						<!-- tfoot : Table Footer : éfinit un ensemble de lignes résumant les colonnes d'un tableau -->
+						<!-- on peut placer le tfoot avant le tbody si on veut, d'ailleurs. Et il s'affichera tout de même après lui dans la page -->
+						<!-- il est illégal que les descendants DIRECTS d'un thead soient autre chose que des tr -->
+						<!-- le thead est censé être obligatoire, mais s'il est omis, le navigateur en créera un, vide, avant le tbody -->
+						<tfoot>
+							<tr>
+								<td>truc</td>
+								<td>truc</td>
+								<td>truc</td>
+								<td>truc</td>
+							</tr>
+							<tr>
+								<td>bla1</td>
+								<td>bla2</td>
+								<td>bla3</td>
+								<td>bla4</td>
+							</tr>
+						</tfoot>
+					</table>
+				</article>
 			</main>
+			<!-- footer : pied-de-page : on met dedans ce qu'on veut, généralement le plan détaillé du site, les mentions légales, comment contacter le webmestre, etc -->
+			<footer>
+				<p>mentions légales</p>
+			</footer>
 		</div>
 	</body>
 </html>

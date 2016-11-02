@@ -24,7 +24,6 @@ body {
 
 .article-titre {
 	color: hsl(168,56%,50%,1);
-	font-size:
 }
 
 .article-content {
@@ -39,7 +38,7 @@ body {
 	padding: 0;
 }
 
-li {
+navigation li {
 	flex: 1;
 	text-align: center;
 }
