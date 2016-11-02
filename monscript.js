@@ -437,6 +437,7 @@ var fac = function factorielle3(nombre) {
         return nombre * factorielle2(nombre - 1);
     }
 }
+
 /*
 Et là aussi ça fonctionne, mais la fonction 'factorielle3' n'est pas disponible
 dans "l'espace global", c'est-à-dire que vous n'y avez pas accès ailleurs que dans elle-même.
@@ -444,6 +445,7 @@ dans "l'espace global", c'est-à-dire que vous n'y avez pas accès ailleurs que 
 
 fac(3); // 6
 // factorielle3(3); // Uncaught ReferenceError: factorielle3 is not defined
+
 
 /*
 Quand on déclare une variable avec le mot-clé var, cette variable est immédiatement
@@ -478,16 +480,72 @@ function toto4() {
 }
 
 
-                                                                                /* PARTIE 5 : LES OBJETS, LE RETOUR */
+                                                                                /* PARTIE 5 : LES ESPACES DE NOM */
 
-console.log(`fin de la partie ${numéroPartie++}\n\n\n\t\t\tPartie ${numéroPartie} : les objets, le RETOUR`);
+console.log(`fin de la partie ${numéroPartie++}\n\n\n\t\t\tPartie ${numéroPartie} : les espaces de nom`);
 /*
-Bon, nous avons vu pas mal de trucs
+Que se passe-t-il dans la situation suivante ?
+*/
+var poisson = "baleine";
+function bidouille1(poisson) {
+    poisson = "saumon";
+}
+bidouille1();
+console.log('bidouille1 : ', poisson); // baleine
+
+function bidouille2() {
+    var poisson = "hareng";
+}
+bidouille2();
+console.log('bidouille2 : ', poisson); // baleine
+
+function bidouille3() {
+    poisson = "hareng";
+}
+bidouille3();
+console.log('bidouille3 : ', poisson); // baleine
+
+/*
+Que peut-on en conclure ?
+Que chaque fonction a son propre "espace" (aussi appelé "environnement"). Et que quand on cherche à
+accéder à la valeur d'une variable à un endroit, le moteur javascript va d'abord chercher cette valeur
+dans l'espace actuel, puis s'il ne la trouve pas dans celui-ci, il va la chercher dans l'espace qui se trouve
+un niveau en-dessous. La fonction bidouille1 a son propre espace, et il y a un poisson dedans. Donc pas
+besoin d'aller chercher plus loin. Idem pour la fonction bidouille2. En revanche, aucun poisson n'est déclaré
+dans bidouille3 (ni en paramère, ni en tant que variable) donc le moteur affecte le premier poisson à portée,
+qui se trouve en-dehors de bidouille3.
+
+Et maintenant, la question piège : que se passe-t-il dans le cas suivant ?
+*/
+poisson = "baleine";
+function bidouille4() {
+    poisson = "hareng";
+    var poisson;
+}
+console.log('bidouille4 : ', poisson);
+
+/*
+Quand le moteur arrive dans bidouille4, il voit qu'il y a un poisson quelque part dans le corps de la fonction,
+il hoiste donc poisson en lui donnant la valeur provisoire undefined. Quand il arrive à `poisson = "hareng"`,
+il affecte la valeur "hareng" au poisson du corps de la fonction. Ce qui se passe dans la fonction reste dans
+la fonction et le poisson de l'espace global n'est donc pas affecté.
 */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
-
-
 var villeNom = 'Boiscommun';
 var villePopulation = 5000;
 console.log(villePopulation);
