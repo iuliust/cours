@@ -13,34 +13,59 @@ body {
 	margin: auto;
 	background-color: hsla(0,100%, 100%,1);
 	box-shadow: 0px 0px 5px 0px hsla(360, 100%, 0%, 1);
+	padding: .2em;
 }
+
+		/* HEADER*/
 
 .banniere {
 	font-size: 40px;
 	padding: 30px;
-	color: purple;
-	border: 5px solid black;
-}
-
-.article-titre {
-	color: hsl(168,56%,50%,1);
-}
-
-.article-content {
-	padding: 5px;
-	text-align: justify;
+	color: white;
+	background-color: darkslategrey;
 }
 
 .navigation {
 	border: 3px groove black;
 	display: flex;
 	list-style-type: none;
+	margin-top: .5em;
+	margin-bottom: .5em;
 	padding: 0;
 }
 
-navigation li {
+.navigation li {
 	flex: 1;
 	text-align: center;
+}
+
+		/* MAIN */
+
+.sujet {
+	border: 1px solid grey;
+	margin-top:.5em;
+	margin-bottom:.5em;
+}
+
+.sujet p {
+	line-height: 1.8em;
+}
+
+.sujet p::first-letter {
+	font-size: 2em;
+}
+.sujet p::first-line {
+	color: darkolivegreen;
+}
+
+.article-titre {
+	color: hsl(168,56%,50%,1);
+	padding: .2em 1em;
+}
+
+.article-content {
+	padding: 1em;
+	text-align: justify;
 }
 
 .encart {
@@ -56,5 +81,58 @@ img.vignette {
 	width: 50px;
 	height: 50px;
 	object-fit: contain;
+}
 
+				/* FORMATAGE DU TEXTE */
+dl {}
+
+dt {
+	font-weight: 600;
+	margin-top: .5em;
+}
+
+dt:nth-of-type(2n), dd:nth-of-type(2n) {
+	background-color: whitesmoke;
+}
+
+dd {
+	margin-bottom: .5em;
+}
+				/* TABLE */
+
+table {
+	/* commentez la ligne suivante pour voir son effet.*/
+	margin: auto;
+	border-collapse: collapse;
+}
+
+caption {
+	font-variant: small-caps;
+	background-color: darkgoldenrod;
+}
+
+th {
+	background-color: hsl(0, 1%, 81%);
+	font-weight: 400; /* équivaut à font-weight: normal, ce qui évite d'afficher le texte en gras */
+}
+
+tbody, thead {
+	border: 3px double firebrick;
+}
+
+td {
+	padding: .3em 1.2em;
+	border: 1px solid lightgray;
+}
+
+tfoot {
+	font-style: italic;
+}
+
+		/* MAIN */
+footer {
+	min-height: 10rem;
+	padding: 1em;
+	color: white;
+	background-image: linear-gradient(to bottom, hsl(180, 25%, 20%), hsl(180, 25%, 25%));
 }

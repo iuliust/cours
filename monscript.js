@@ -507,7 +507,7 @@ console.log('bidouille3 : ', poisson); // baleine
 
 /*
 Que peut-on en conclure ?
-Que chaque fonction a son propre "espace" (aussi appelé "environnement"). Et que quand on cherche à
+Que chaque fonction a son propre "espace" (aussi appelé "environnement" ou "espace de nom"). Et que quand on cherche à
 accéder à la valeur d'une variable à un endroit, le moteur javascript va d'abord chercher cette valeur
 dans l'espace actuel, puis s'il ne la trouve pas dans celui-ci, il va la chercher dans l'espace qui se trouve
 un niveau en-dessous. La fonction bidouille1 a son propre espace, et il y a un poisson dedans. Donc pas
