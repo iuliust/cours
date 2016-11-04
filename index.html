@@ -21,18 +21,20 @@
 			<!-- header : (en-tête) le header de la page regroupe les liens principaux de navigation du site -->
 			<header>
 				<div class="banniere">Bannière</div>
-				<!-- ul : Unordered List : liste non-ordonnée d'éléments (liste à puces) -->
-				<ul class="navigation">
-					<!-- li : List Item : un élément de la liste (qu'elle soit ordonnée ou non) -->
-					<li>
-						<!-- A : anchor : lien vers une autre partie du site, voire un autre site -->
-						<a href="http://www.google.fr">accueil</a>
-					</li>
-					<li><a href="http://www.google.fr">saison</a></li>
-					<li><a href="http://www.google.fr">personnages</a></li>
-					<li><a href="http://www.google.fr">bande-annonce</a></li>
-					<li><a href="http://www.google.fr">boutique</a></li>
-				</ul>
+				<nav>
+					<!-- ul : Unordered List : liste non-ordonnée d'éléments (liste à puces) -->
+					<ul class="navigation">
+						<!-- li : List Item : un élément de la liste (qu'elle soit ordonnée ou non) -->
+						<li>
+							<!-- A : anchor : lien vers une autre partie du site, voire un autre site -->
+							<a href="http://www.google.fr">accueil</a>
+						</li>
+						<li><a href="http://www.google.fr">saison</a></li>
+						<li><a href="http://www.google.fr">personnages</a></li>
+						<li><a href="http://www.google.fr">bande-annonce</a></li>
+						<li><a href="http://www.google.fr">boutique</a></li>
+					</ul>
+				</nav>
 			</header>
 			<!-- main : section principale du contenu de la page -->
 			<main>
@@ -48,7 +50,7 @@
 					</ul>
 
 					<!-- div : Division : un bloc de contenu, sans plus de précision sémantique -->
-					<div class="article-content">
+					<div class="article-contenu">
 						<!-- p : Paragraph : un paragraphe -->
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing
 							elit. Inventore fugit qui nulla laboriosam non, optio
@@ -64,7 +66,7 @@
 				<hr>
 				<article class="sujet">
 					<h2 class="article-titre">Le formatage de texte</h2>
-					<div class="article-content">
+					<div class="article-contenu">
 						<ul style="list-style-type: none;">
 							<li>
 								<h3>Les balises de formatage non-sémantiques</h3>
@@ -180,8 +182,12 @@
 					</div>
 				</article>
 				<article class="sujet">
-					<h2 class="article-titre"></h2>
-					<article-content></article-content>
+					<h2 class="article-titre">Les formulaires</h2>
+					<div class="article-contenu">
+						<p>Quand on s'incrit à un site, l'utilisateur est amené à remplir les <em>champs</em> d'un formulaire.</p>
+						<p>Un formulaire contient des champs, des boutons radio, des boîtes à cocher, des menus déroulants, des menus cliquables.</p>
+
+					</div>
 				</article>
 			</main>
 			<!-- footer : pied-de-page : on met dedans ce qu'on veut, généralement le plan détaillé du site, les mentions légales, comment contacter le webmestre, etc -->

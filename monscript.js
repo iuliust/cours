@@ -68,7 +68,7 @@ console.log('fin de la partie 1\n\n\n\t\t\tPartie', numéroPartie, ": les commen
 console.log('Jean a de longues', 'moustaches');
 console.log('Jean a une superbe', //, 'moustaches');
 'implantation capillaire');
-console.log('Patrick a une énorme'/*, 'trique'*/, 'tête');
+console.log('Patrick /* */a une énorme'/*, 'trique'*/, 'tête');
 
 /* cela signifie également que l'on peut ainsi commenter
  sur plusieurs lignes.
@@ -139,6 +139,8 @@ console.log('true || true', true || true); // true
 console.log('true || false', true || false); // true
 console.log('!true', !true); // false
 console.log('!false', !false); // true
+console.log('(10 > 5)', (10 > 5)); // true
+console.log('!(10 > 5)', !(10 > 5)); // true
 
 //      Les assignations
 /*
@@ -288,6 +290,7 @@ Chouette ! mais comment fait-on pour accéder à l'age d'Aragorn ?
 */
 
 console.log('aragornObjet.age', aragornObjet.age); // 85
+console.log('aragornObjet[\'age\']', aragornObjet['age']); // 85
 console.log('++(aragornObjet.age)', ++(aragornObjet.age)); // 86
 aragornObjet.argent += 50; // 150
 
@@ -353,7 +356,7 @@ var gandalf = {
     }
 };
 gandalf.attaquer(); // Gandalf le Gris lance un sort niveau 1
-gandalf.nom = "Gandalf le Blanc";
+gandalf.nom = "Gandalf l'Blanc";
 gandalf.attaquer(); // Gandalf le Blanc lance un sort niveau 1
 
 /*
@@ -403,20 +406,22 @@ la fonction ne peut s'appeler elle-même. Exemple :
 */
 // décommentez la fonction suivante pour essayer, ça plantera :
 // var factorielle = function(nombre) {
-//     if (nombre < 1) {
+//     if (nombre <= 1) {
 //         return 1;
 //     } else {
 //         return nombre * factorielle(nombre - 1);
 //     }
-// }
+// };
+// console.log(factorielle(5));
 /* tout ça parce que javascript va d'abord devoir calculer ce qu'il y a à droite
  du signe = avant de pouvoir le mettre dans la variable située à gauche.*/
 
 /*
 En revanche, si la fonction est définie ainsi :
 */
+console.log(factorielle2(6));
 function factorielle2(nombre) {
-    if (nombre < 1) {
+    if (nombre <= 1) {
         return 1;
     } else {
         return nombre * factorielle2(nombre - 1);
@@ -430,13 +435,16 @@ Encore une fois, c'est un concept un peu difficile à appréhender, mais on fini
 généralement par comprendre.
 Si on tient vraiment à mettre la fonction dans une variable, on peut faire :
 */
+// console.log(fac(6));
+console.log(fac); // undefined
 var fac = function factorielle3(nombre) {
-    if (nombre < 1) {
+    if (nombre <= 1) {
         return 1;
     } else {
         return nombre * factorielle2(nombre - 1);
     }
-}
+};
+console.log(fac); // function factorielle3()......
 
 /*
 Et là aussi ça fonctionne, mais la fonction 'factorielle3' n'est pas disponible
@@ -503,7 +511,7 @@ function bidouille3() {
     poisson = "hareng";
 }
 bidouille3();
-console.log('bidouille3 : ', poisson); // baleine
+console.log('bidouille3 : ', poisson); // hareng
 
 /*
 Que peut-on en conclure ?
@@ -519,9 +527,11 @@ Et maintenant, la question piège : que se passe-t-il dans le cas suivant ?
 */
 poisson = "baleine";
 function bidouille4() {
+    debugger;
     poisson = "hareng";
     var poisson;
 }
+bidouille4();
 console.log('bidouille4 : ', poisson);
 
 /*
