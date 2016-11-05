@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Le CSS par l'exemple</title>
+		<link rel="stylesheet" href="./styles.css">
+	</head>
+	<body>
+		<div class="site-container">
+			<header>
+				<div class="banniere">Bannière</div>
+				<nav>
+					<ul class="navigation">
+						<li>
+							<a href="./index.html">accueil</a>
+						</li>
+						<li><a href="./styles.html">Le CSS</a></li>
+						<li><a href="./media-queries.html">Les media queries</a></li>
+						<li><a href="http://www.google.fr">bande-annonce</a></li>
+						<li><a href="http://www.google.fr">boutique</a></li>
+					</ul>
+				</nav>
+			</header>
+			<main>
+				<article class="sujet">
+					<h2 class="article-titre">Les Sélecteurs</h2>
+					<div class="article-contenu">
+<style class="bidule" style="display:block;white-space:pre-line" contenteditable="true">
+	p! span {
+		color: limegreen;
+	}
+</style>
+						<p>
+							Les sélecteurs <span>permettent</span> de sélectionner les éléments auxquels
+							on va appliquer les règles CSS qu'on liste entre les accolades.
+						</p>
+						<p>
+							La syntaxe est donc la suivante :<br>
+<pre>MON_SELECTEUR_CSS {
+	propriétéCss1: valeur1;
+	propriétéCss2: valeur2;
+	propriétéCss3: valeur3;
+}</pre>
+						</p>
+						<p>
+							Notons que les propriétés CSS doivent être séparées les unes
+							des autres par un point-virgule, ce qui signifie d'ailleurs
+							que la dernière	propriété CSS avant l'accolade fermante `}` n'est pas
+							nécessaire. Cependant, il est de bon ton d'en ajouter un quand
+							même, par souci de consistence (et comme ça, si jamais on ajoute
+							une autre propriété plus tard, il n'y a plus aucune chance d'oublier
+							de rajouter le point-virgule à la ligne du dessus, comme il y en
+							a déjà un).
+						</p>
+						<br>
+						<table>
+							<caption>les Sélecteurs les plus importants</caption>
+							<thead>
+								<tr>
+									<th>motif</th>
+									<th>exemple</th>
+									<th>effet de l'exemple</th>
+								</tr>
+							</thead>
+								<tbody>
+									<tr>
+										<td>*</td>
+										<td>td *</td>
+										<td>séléctionne tous les descendants des td</td>
+									</tr>
+									<tr>
+										<td>E</td>
+										<td>div</td>
+										<td>toutes les divs de la page</td>
+									</tr>
+									<tr>
+										<td>.</td>
+										<td>.chouette</td>
+										<td>tous les éléments de classe chouette</td>
+									</tr>
+									<tr>
+										<td>#</td>
+										<td>#mon_super_bouton</td>
+										<td>l'élément de la page qui a l'id 'mon_super_bouton'</td>
+									</tr>
+									<tr>
+										<td>[A]</td>
+										<td>div[foo]</td>
+										<td>tous les divs qui ont un attribut 'foo'</td>
+									</tr>
+								</tbody>
+						</table>
+					</div>
+				</article>
+
+				<article class="sujet">
+					<h2 class="article-titre">Les pseudo-classes</h2>
+					<div class="article-contenu">
+						<p>
+							Les pseudo-sélecteurs permettent de n'appliquer les règles
+							définies entre accolades que si l'élément qui précède le
+							sélecteur remplit certaines conditions. Ces conditions
+							peuvent porter sur l'ordre de cet élément par rapport à
+							ses frères, sur l'état de cet élément (si une case est cochée
+							ou pas), ou si le curseur de la souris survole l'élément...
+						</p>
+						<table>
+							<caption>Les pseudo-classes</caption>
+							<thead>
+								<tr>
+									<th>motif</th>
+									<th>exemple</th>
+									<th>effet</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>E:not(s)</td>
+									<td>div:not([style])</td>
+									<td>les div qui n'ont pas d'attribut style</td>
+								</tr>
+								<tr>
+									<td>E:active</td>
+									<td>div:hover</td>
+									<td>le div actif</td>
+								</tr>
+								<tr>
+									<td>E:hover</td>
+									<td>div:hover</td>
+									<td>tous les divs que le curseur survole</td>
+								</tr>
+								<tr>
+									<td>E:focus</td>
+									<td>div:hover</td>
+									<td>le div qui a le focus</td>
+								</tr>
+
+								<tr>
+									<td>E:only-child</td>
+									<td>h2:only-child</td>
+									<td>les h2 qui sont l'unique élément enfant de leur parent</td>
+								</tr>
+								<tr>
+									<td>E:only-of-type</td>
+									<td>h2:only-of-type</td>
+									<td>les h2 n'ont pas de frère de type h2</td>
+								</tr>
+								<tr>
+									<td>E:first-child</td>
+									<td>div:first-child</td>
+									<td>tous les divs qui sont le premier élément de leur parent</td>
+								</tr>
+								<tr>
+									<td>E:first-of-type</td>
+									<td>.bidule:first-of-type</td>
+									<td>tous éléments de classe bidule qui sont aussi les premiers éléments de leur type (= nom de balise) parmi leurs frères</td>
+								</tr>
+								<tr>
+									<td rowspan="7">E:nth-child</td>
+									<td>tr:nth-child(even)</td>
+									<td>les tr dont l'indice parmi ses frères est pairs (en comptant à partir de 1, et du début)</td>
+								</tr>
+								<tr>
+									<td>tr:nth-child(odd)</td>
+									<td>les tr dont l'indice parmi ses frères est impair (en comptant à partir du début</td>
+								</tr>
+								<tr>
+									<td>.green:nth-child(2n)</td>
+									<td>les éléments de classe green dont l'indice parmi ses frères est pair (en comptant à partir du début)<br>
+<pre>&lt;div&gt;
+  &lt;p class="green"&gt;&lt;/p&gt; (index=1) => non, car 1 est impair
+  &lt;p&gt;&lt;/p&gt; (index=2) => 2 est pair, mais l'élément n'a pas la classe 'green'
+  &lt;p class="green"&gt;&lt;/p&gt; (index=3) => non car 3 est impair
+  &lt;p class="green"&gt;&lt;/p&gt; (index=4) => oui, car pair
+  &lt;p class="green"&gt;&lt;/p&gt; (index=5) => non
+  &lt;span class="green"&gt;&lt;/span&gt; (index=6) => oui, car pair
+  &lt;span class="green"&gt;&lt;/span&gt; (index=7) => non
+&lt;/div&gt;</pre></td>
+								</tr>
+								<tr>
+									<td>tr:nth-child(2w+1)</td>
+									<td>les tr dont l'indice parmi ses frères est impair (en comptant à partir du début)</td>
+								</tr>
+								<tr>
+									<td>tr:nth-child(3k)</td>
+									<td>les tr dont l'indice parmi ses frères est 1, 4, 7... (en commençant la numérotation à 1 (et pas à zéro comme dans les []))</td>
+								</tr>
+								<tr>
+									<td>tr:nth-child(3k+1)</td>
+									<td>4, 7, 10 et ainsi de suite</td>
+								</tr>
+								<tr>
+									<td>tr:nth-child(3k+2)</td>
+									<td>2, 5, 8 etc...</td>
+								</tr>
+								<tr>
+									<td rowspan="2">E:nth-of-type</td>
+									<td>div *:nth-of-type(2k+1)</td>
+									<td>
+										c'est comme pour nth-child, sauf que, alors que pour ce dernier
+										la numérotation se faisait sur tous les éléments frères, ici, on ne
+										numérote que parmi les éléments du même type :<br>
+<pre>&lt;div&gt;
+  &lt;p&gt;&lt;/p&gt; <= (index=1) oui car impair (1 = 1*0 + 1)
+  &lt;span&gt;&lt;/span&gt; <= (index=1) oui, car impair (1 = 1*0 + 1)
+  &lt;p&gt;&lt;/p&gt; <= (index=2) non, car pair
+&lt;/div&gt;</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>div .green:nth-of-type(3n+2)</td>
+									<td>
+										comme à la ligne au-dessus, chaque type d'élément bénéficie de sa propre numérotation :<br>
+<pre>&lt;div&gt;
+  &lt;h1&gt;&lt;/h1&gt; <= (index=1) non
+  &lt;p&gt;&lt;/p&gt; <= (index=1) non
+  &lt;p&gt;&lt;/p&gt; <= (index=2) oui car 2 = 3*0 + 2
+  &lt;p&gt;&lt;/p&gt; <= (index=3) non
+  &lt;p&gt;&lt;/p&gt; <= (index=4) non
+  &lt;h1&gt;&lt;/h1&gt; <= (index=2) oui car 2 = 3*0 + 2
+  &lt;p&gt;&lt;/p&gt; <= (index=5) oui car 5 = 3*1 + 2
+  &lt;p&gt;&lt;/p&gt; <= (index=6) non
+  &lt;h1&gt;&lt;/h1&gt; <= (index=3) non
+  &lt;p&gt;&lt;/p&gt; <= (index=7) non
+  &lt;p&gt;&lt;/p&gt; <= (index=8) oui car 8 = 3*2 + 2
+&lt;/div&gt;</pre>
+									</td>
+								</tr>
+								<tr>
+									<td>E:last-child</td>
+									<td>div:last-child</td>
+									<td>tous les divs qui sont le dernier élément de leur parent</td>
+								</tr>
+								<tr>
+									<td>E:last-of-type</td>
+									<td>.machin:last-of-type</td>
+									<td>tous les éléments de classe machin qui sont le dernier élément de leur type dans leur parent</td>
+								</tr>
+								<tr>
+									<td>E:nth-last-child</td>
+									<td>tr:nth-last-child(2k+1)</td>
+									<td>Comme pour nth-child(2k+1), sauf que la numérotation commence par le dernier élément du parent</td>
+								</tr>
+								<tr>
+									<td>E:nth-last-of-type</td>
+									<td>p:nth-last-of-type(3k+2)</td>
+									<td>comme nth-child(3k+2), sauf qu'ici, on commence la numérotation par le dernier élément :<br>
+<pre>&lt;div&gt;
+  &lt;h1&gt;&lt;/h1&gt; <= (index=3) non
+  &lt;p&gt;&lt;/p&gt; <= (index=8) oui car 8 = 3*2 + 2
+  &lt;p&gt;&lt;/p&gt; <= (index=7) non
+  &lt;p&gt;&lt;/p&gt; <= (index=6) non
+  &lt;p&gt;&lt;/p&gt; <= (index=5) oui car 5 = 3*1 + 2
+  &lt;h1&gt;&lt;/h1&gt; <= (index=2) oui car 2 = 3*0 + 2
+  &lt;p&gt;&lt;/p&gt; <= (index=4) non
+  &lt;p&gt;&lt;/p&gt; <= (index=3) non
+  &lt;h1&gt;&lt;/h1&gt; <= (index=1) non
+  &lt;p&gt;&lt;/p&gt; <= (index=2) oui car 2 = 3*0 + 2
+  &lt;p&gt;&lt;/p&gt; <= (index=1) non
+&lt;/div&gt;</pre></td>
+								</tr>
+
+								<tr>
+									<td>E:empty</td>
+									<td>div:empty</td>
+									<td>les divs qui n'ont ni élément enfant, ni noeud de texte enfant</td>
+								</tr>
+								<tr>
+									<td>E:checked</td>
+									<td>input:checked</td>
+									<td>un élément de l'interface qui est coché (par exemple, un bouton radio ou une boîte à cocher)</td>
+								</tr>
+								<tr>
+									<td>E:valid</td>
+									<td>input:valid</td>
+									<td>un élément de l'interface qui est valide (par exemple, un champ d'un formulaire)</td>
+								</tr>
+								<tr>
+									<td>E:invalid</td>
+									<td>input:invalid</td>
+									<td>un élément de l'interface qui n'est pas valide (par exemple, un bouton radio ou une boîte à cocher)</td>
+								</tr>
+								<tr>
+									<td>E:indeterminate</td>
+									<td>input:indeterminate</td>
+									<td>un élément de l'interface dont la valeur est encore indéterminée (par exemple, un bouton radio ou une boîte à cocher)</td>
+								</tr>
+								<tr>
+									<td>E:required</td>
+									<td>input:required</td>
+									<td>un élément de l'interface dont la valeur est requise (par exemple, un bouton radio ou une boîte à cocher)</td>
+								</tr>
+								<tr>
+									<td>E:optional</td>
+									<td>input:optional</td>
+									<td>un élément de l'interface dont la valeur est optionnelle (par exemple, un bouton radio ou une boîte à cocher)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</article>
+
+				<article class="sujet">
+					<h2 class="article-titre">Les Pseudo-éléments</h2>
+					<div class="article-contenu">
+						<p>
+							Les pseudo-éléments permettent de créer des éléments virtuels et de les styler.
+						</p>
+						<p>
+							Ils sont reconnaissables à la syntaxe ::pseudo-selecteur.
+						</p>
+						<table>
+							<caption>les pseudo-éléments</caption>
+							<thead>
+								<tr>
+									<th>motif</th>
+									<th>exemple</th>
+									<th>effet</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>::first-line</td>
+									<td>p::first-line</td>
+									<td>
+										va mettre la première ligne des paragraphes dans des éléments
+										virtuels et appliquer les styles choisis au contenu de cet
+										élément virtuel
+									</td>
+								</tr>
+								<tr>
+									<td>::first-letter</td>
+									<td>p::first-letter</td>
+									<td>idem, mais pour la première lettre du paragraphe</td>
+								</tr>
+								<tr>
+									<td>::before</td>
+									<td>blockquote::before</td>
+									<td>
+										crée un élément virtuel en tant que premier élément des
+										blockquotes et va styler ces éléments. Ne pas oublier
+										de définir une règle `content:' '` si on veut que ça s'affiche
+									</td>
+								</tr>
+								<tr>
+									<td>::after</td>
+									<td>blockquotes::after</td>
+									<td>
+										idem que ::before, mais insère l'élément virtuel en tant que
+										dernier enfant
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</article>
+
+				<article class="sujet">
+					<h2 class="article-titre">Les Combinateurs</h2>
+					<div class="article-contenu">
+						<p>
+							Permettent de préciser des relations hiérarchiques entre différentes sous-parties d'un sélecteur.
+						</p>
+						<table>
+							<caption>les Combinateurs</caption>
+							<thead>
+								<tr>
+									<th>motif</th>
+									<th>exemple</th>
+									<th>effet</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td> </td>
+									<td>p span</td>
+									<td>
+										les spans qui sont le descendant direct ou indirect d'un p
+									</td>
+								</tr>
+								<tr>
+									<td>></td>
+									<td>p > span</td>
+									<td>
+										les spans qui sont le descendant direct d'un p
+									</td>
+								</tr>
+								<tr>
+									<td>~</td>
+									<td>p ~ span</td>
+									<td>
+										les spans se situent après un p dans une fratrie
+									</td>
+								</tr>
+								<tr>
+									<td>+</td>
+									<td>p + span</td>
+									<td>
+										les spans se situent juste après un p dans une fratrie
+									</td>
+								</tr>
+								<tr>
+									<td>!</td>
+									<td>!p span</td>
+									<td>un p qui
+										les p qui sont parent d'un (ou plusieurs) span
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</article>
+			</main>
+			<footer>
+				<p>mentions légales</p>
+			</footer>
+		</div>
+	</body>
+</html>

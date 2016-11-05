@@ -9,7 +9,17 @@ body {
 }
 
 .site-container {
-	max-width: 600px;
+	/* quand la largeur passe d'une valeur à une autre,
+	la transition entre ces deux valeurs est animée sur
+	une seconde. Classe ! */
+	transition: width 1s;
+	/*
+	Quand on dit `width:300px`, le margin doit être inclus dans
+	le calcul. Le meilleur moyen de comprendre ce que je
+	veux dire par là, c'est de jouer avec cette propriété
+	dans devTools.
+	*/
+	box-sizing: border-box;
 	margin: auto;
 	background-color: hsla(0,100%, 100%,1);
 	box-shadow: 0px 0px 5px 0px hsla(360, 100%, 0%, 1);
@@ -48,14 +58,14 @@ body {
 }
 
 .sujet p {
-	line-height: 1.8em;
+	/*line-height: 1.8em;*/
 }
 
 .sujet p::first-letter {
-	font-size: 2em;
+	/*font-size: 2em;*/
 }
 .sujet p::first-line {
-	color: darkolivegreen;
+	/*color: darkolivegreen;*/
 }
 
 .article-titre {
@@ -81,6 +91,15 @@ img.vignette {
 	width: 50px;
 	height: 50px;
 	object-fit: contain;
+}
+
+label /for/ input {
+	color: green;
+}
+
+style.syntaxe {
+	display: block;
+	white-space: pre-line;
 }
 
 				/* FORMATAGE DU TEXTE */
@@ -136,3 +155,4 @@ footer {
 	color: white;
 	background-image: linear-gradient(to bottom, hsl(180, 25%, 20%), hsl(180, 25%, 25%));
 }
+

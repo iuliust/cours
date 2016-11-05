@@ -7,7 +7,7 @@
 		<meta charset="utf-8">
 
 		<!-- Cette balise définit le titre de la page tel qu'il s'affichera dans l'onglet du navigateur -->
-		<title>qui permet de changer le titre de la page</title>
+		<title>Ma première page HTML !</title>
 
 		<!-- dit au navigateur d'associer le fichier de styles styles.css à la page et de l'interpréter -->
 		<link rel="stylesheet" href="./styles.css">
@@ -27,10 +27,10 @@
 						<!-- li : List Item : un élément de la liste (qu'elle soit ordonnée ou non) -->
 						<li>
 							<!-- A : anchor : lien vers une autre partie du site, voire un autre site -->
-							<a href="http://www.google.fr">accueil</a>
+							<a href="./index.html">accueil</a>
 						</li>
-						<li><a href="http://www.google.fr">saison</a></li>
-						<li><a href="http://www.google.fr">personnages</a></li>
+						<li><a href="./styles.html">Le CSS</a></li>
+						<li><a href="./media-queries.html">Les media queries</a></li>
 						<li><a href="http://www.google.fr">bande-annonce</a></li>
 						<li><a href="http://www.google.fr">boutique</a></li>
 					</ul>
@@ -69,14 +69,14 @@
 					<div class="article-contenu">
 						<ul style="list-style-type: none;">
 							<li>
-								<h3>Les balises de formatage non-sémantiques</h3>
+								<h3 taille="moyen">Les balises de formatage non-sémantiques</h3>
 
 								<!-- dl : Description List : liste de descriptions / définitions -->
 								<dl>
 									<!-- dt : Definition Term : le terme que l'on souhaite définir -->
-									<dt>&lt;b&gt;</dt>
+									<dt taille="gros">&lt;b&gt;</dt>
 									<!-- dd : Definition Description : la description / définition en soi -->
-									<dd>&lt;b&gt; met le contenu en <b>gras</b>.</dd>
+									<dd taille="petit">&lt;b&gt; met le contenu en <b>gras</b>.</dd>
 
 									<dt>&lt;i&gt;</dt>
 									<dd>&lt;i&gt; met le contenu en <i>italique</i>.</dd>
@@ -166,12 +166,6 @@
 							donc en général, on ne le met pas. Si je l'écris ici, c'est juste pour votre culture générale. -->
 							<tfoot>
 								<tr>
-									<td>truc</td>
-									<td>truc</td>
-									<td>truc</td>
-									<td>truc</td>
-								</tr>
-								<tr>
 									<td>bla1</td>
 									<td>bla2</td>
 									<td>bla3</td>
@@ -249,7 +243,6 @@
 
 								<input id="input_week" type="week">
 								<label for="input_week">type="week"</label><br>
-
 							</fieldset>
 							<fieldset>
 								<legend>Les boutons</legend>

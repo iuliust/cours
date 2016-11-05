@@ -1,3 +1,4 @@
+'use strict';
 console.log('Tuto javascript');
 
                                                                                 /* PARTIE 1 : LES TYPES */
@@ -405,14 +406,14 @@ pas de nom et que la variable à qui on l'assigne n'a pas encore de valeur,
 la fonction ne peut s'appeler elle-même. Exemple :
 */
 // décommentez la fonction suivante pour essayer, ça plantera :
-// var factorielle = function(nombre) {
-//     if (nombre <= 1) {
-//         return 1;
-//     } else {
-//         return nombre * factorielle(nombre - 1);
-//     }
-// };
-// console.log(factorielle(5));
+var factorielle1 = function(nombre) {
+    if (nombre <= 1) {
+        return 1;
+    } else {
+        return nombre * factorielle1(nombre - 1);
+    }
+};
+console.log(factorielle1(5));
 /* tout ça parce que javascript va d'abord devoir calculer ce qu'il y a à droite
  du signe = avant de pouvoir le mettre dans la variable située à gauche.*/
 
@@ -527,7 +528,6 @@ Et maintenant, la question piège : que se passe-t-il dans le cas suivant ?
 */
 poisson = "baleine";
 function bidouille4() {
-    debugger;
     poisson = "hareng";
     var poisson;
 }
