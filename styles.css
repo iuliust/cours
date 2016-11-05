@@ -8,6 +8,17 @@ body {
 	background-color: white;
 }
 
+style.live-edit {
+	display:block;
+	white-space:pre;
+	border: 1px solid red;
+	padding: 1em;
+}
+style.live-edit::before {
+	content: "/* Mets les propriétés sur la même ligne, car ça ne fonctionnera pas sinon. */";
+	color: forestgreen;
+}
+
 .site-container {
 	/* quand la largeur passe d'une valeur à une autre,
 	la transition entre ces deux valeurs est animée sur
