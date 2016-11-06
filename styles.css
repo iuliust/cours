@@ -23,7 +23,7 @@ style.live-edit::before {
 	/* quand la largeur passe d'une valeur à une autre,
 	la transition entre ces deux valeurs est animée sur
 	une seconde. Classe ! */
-	transition: width 1s;
+	transition: width 1s, color 4s;
 	/*
 	Quand on dit `width:300px`, le margin doit être inclus dans
 	le calcul. Le meilleur moyen de comprendre ce que je

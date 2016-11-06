@@ -27,7 +27,9 @@
 						<!-- li : List Item : un élément de la liste (qu'elle soit ordonnée ou non) -->
 						<li>
 							<!-- A : anchor : lien vers une autre partie du site, voire un autre site -->
-							<a href="./index.html">accueil</a>
+							<a href="./index.html">
+								<abbr title="HyperText Markup Language">HTML</abbr>
+							</a>
 						</li>
 						<li><a href="./styles.html">Le CSS</a></li>
 						<li><a href="./media-queries.html">Les media queries</a></li>
@@ -59,6 +61,10 @@
 							totam sapiente id reiciendis dolore voluptas odio
 							vitae consectetur eveniet ut molestias. Quod eligendi
 							cum, nesciunt quam ex.
+							<details>
+								<summary>dblablkbla</summary>
+								<p>La balise details permet de cacher des détails</p>
+							</details>
 						</p>
 					</div>
 				</article>
@@ -181,7 +187,7 @@
 						<p>Quand on s'incrit à un site, l'utilisateur est amené à remplir les <em>champs</em> d'un formulaire.</p>
 						<p>Un formulaire contient des champs, des boutons radio, des boîtes à cocher, des menus déroulants, des menus cliquables.</p>
 						<!-- form : Formulaire -->
-						<form action="POST">
+						<form action="./traitement_formulaire.php" method="POST">
 							<!-- fieldset : ensemble de champs -->
 							<fieldset>
 								<!-- titre du fieldset -->
@@ -200,22 +206,22 @@
 								<label for="input_date">type="date"</label><br>
 
 								<input id="input_datetime" type="datetime">
-								<label for="input_datetime">type="datetime</label><br>
+								<label for="input_datetime">type="datetime"</label><br>
 
 								<input id="input_email" type="email">
-								<label for="input_email">type="email</label><br>
+								<label for="input_email">type="email"</label><br>
 
 								<input id="input_file" type="file">
-								<label for="input_file">type="file</label><br>
+								<label for="input_file">type="file"</label><br>
 
 								<input id="input_hidden" type="hidden">
 								<label for="input_hidden">type="hidden"</label><br>
 
 								<input id="input_image" type="image">
-								<label for="input_image">type="image</label><br>
+								<label for="input_image">type="image"</label><br>
 
 								<input id="input_month" type="month">
-								<label for="input_month">type="month</label><br>
+								<label for="input_month">type="month"</label><br>
 
 								<input id="input_number" type="number">
 								<label for="input_number">type="number"</label><br>
@@ -235,8 +241,11 @@
 								<input id="input_submit" type="submit">
 								<label for="input_submit">type="submit"</label><br>
 
-								<input id="input_textetime" type="textetime">
-								<label for="input_textetime">type="textetime"</label><br>
+								<input id="input_text" type="text">
+								<label for="input_text">type="text"</label><br>
+
+								<input id="input_time" type="time">
+								<label for="input_time">type="time"</label><br>
 
 								<input id="input_url" type="url">
 								<label for="input_url">type="url"</label><br>
