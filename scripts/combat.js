@@ -24,6 +24,9 @@ class Personne {
     }
     */
     constructor(nom, age, genre, classe, armes, localisation, race, caractéristiques) {
+        this.expérience = 0;
+        this.niveau = 1;
+
         this.nom = nom;
         this.age = age;
         this.genre = genre;
@@ -33,15 +36,28 @@ class Personne {
         this.race = race;
         this.caractéristiques = caractéristiques;
 
-        this.ennemi = {
-            pv: 50,
-            nom: 'Nazgrakk'
-        };
+        this._pv = 100;
         this.corvées = [];
+        this.htmlElement = null;
     }
 
-    attaquer() {
-        console.log(this.nom, 'attaque', this.ennemi.nom, 'avec', this.armes[0]);
+    get pv() {
+        return this._pv;
+    }
+
+    set pv(valeur) {
+        this._pv = valeur;
+        this.htmlElement.textContent = `${this.nom} (${valeur})`;
+        return valeur;
+    }
+
+    attaquer(ennemi) {
+        console.log(this.nom, 'attaque', ennemi.nom, 'avec', this.armes[0]);
+        ennemi.pv -= this.caractéristiques.force;
+        if (ennemi.pv <= 0) {
+            console.log(this.nom, 'a tué', ennemi.nom);
+            this.expérience += 10;
+        }
     }
 
     ajouterCorvée(corvée) {
@@ -51,6 +67,31 @@ class Personne {
     travailler() {
         for (let corvée of this.corvées) {
             corvée();
+        }
+    }
+}
+
+class Partie {
+    constructor(aventuriers, ennemis, groupeAventuriersElement, groupeEnnemisElement) {
+        this.aventuriers = aventuriers;
+        this.ennemis = ennemis;
+        this.groupeAventuriersElement = groupeAventuriersElement;
+        this.groupeEnnemisElement = groupeEnnemisElement;
+
+        this.partieHtmlElement = document.querySelector("#partie");
+
+        for (let aventurier of this.aventuriers) {
+            let aventurierElement = document.createElement('li');
+            aventurierElement.textContent = `${aventurier.nom} (${aventurier.pv})`;
+            this.groupeAventuriersElement.appendChild(aventurierElement);
+            aventurier.htmlElement = aventurierElement;
+        }
+
+        for (let ennemi of this.ennemis) {
+            let ennemiElement = document.createElement('li');
+            ennemiElement.textContent = `${ennemi.nom} (${ennemi.pv})`;
+            this.groupeEnnemisElement.appendChild(ennemiElement);
+            ennemi.htmlElement = ennemiElement;
         }
     }
 }
@@ -72,9 +113,28 @@ var aragorn = new Personne(
             sagesse: 13
         }
     );
+var chefOrque = new Personne(
+        'Krazgül',
+        13,
+        'm',
+        'barbare',
+        ['sabre'],
+        {x: 1, y: 0},
+        'orque',
+        {
+            force: 16,
+            dextérité: 8,
+            constitution: 15,
+            intelligence: 7,
+            charisme: 8,
+            sagesse: 6
+        }
+    );
 
-var faireAttaquerAragorn = function() {
-    aragorn.attaquer();
+var partie = new Partie([aragorn], [chefOrque], document.querySelector('#aventuriers'), document.querySelector('#méchants'));
+
+function faireAttaquerAragorn() {
+    aragorn.attaquer(chefOrque);
 }
 
 function faireTravaillerAragorn() {
@@ -100,6 +160,8 @@ function trouverLesElementsHtmlEtLesAffecterAuxVariablesCorrespondantes() {
 }
 
 function attacherLesFonctionsDeRappelAuxElementsCorrespondants() {
+    trouverLesElementsHtmlEtLesAffecterAuxVariablesCorrespondantes();
+
     // On définit les corvées qu'Aragorn exécutera au moment voulu.
     function faireLaVaisselle() {
         pJournalIntime.innerHTML += ('je fais la vaisselle<br>');
@@ -123,13 +185,13 @@ function attacherLesFonctionsDeRappelAuxElementsCorrespondants() {
     }
 
     // on attache les fonctions de rappel aux boutons préalablement définis
+    boutonAttaquer.addEventListener('click', () => aragorn.attaquer(chefOrque), false);
     boutonVaisselle.addEventListener('click', boutonVaisselleCallback , false);
     boutonGobelins.addEventListener('click', boutonGobelinsCallback , false);
     boutonCâlin.addEventListener('click', boutonCâlinCallback, false);
 
     boutonTravailler.addEventListener('click', faireTravaillerAragorn, false);
 }
-trouverLesElementsHtmlEtLesAffecterAuxVariablesCorrespondantes();
 attacherLesFonctionsDeRappelAuxElementsCorrespondants();
 
 

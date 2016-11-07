@@ -1,0 +1,11 @@
+.partie {
+    display: flex;
+}
+
+.partie .groupe_de_personnes {
+    border: 1px solid black;
+    flex: 1;
+    list-style-type: none;
+    margin: .5em;
+    padding: 1em;
+}
